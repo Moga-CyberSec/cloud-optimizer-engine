@@ -1,0 +1,35 @@
+{
+    "timestamp": "2026-10-23T15:11:35.116295+00:00",
+    "region": "af-south-1",
+    "financial_waste_summary": {
+        "unattached_storage_loss_usd_monthly": 15.0,
+        "idle_instances_count": 1,
+        "critical_security_gaps": 1
+    },
+    "findings": {
+        "unattached_volumes": [
+            {
+                "volume_id": "vol-09a8b7c6d5e4f3a21",
+                "size_gb": 150,
+                "estimated_monthly_loss_usd": 15.0,
+                "status": "UNATTACHED_WASTE"
+            }
+        ],
+        "idle_instances": [
+            {
+                "instance_id": "i-0123456789abcdef0",
+                "type": "t3.xlarge",
+                "average_cpu_7d": 1.4,
+                "recommendation": "RESIZE_OR_STOP"
+            }
+        ],
+        "security_vulnerabilities": [
+            {
+                "group_id": "sg-09988776655443322",
+                "group_name": "database-prod-tier",
+                "exposed_port": 22,
+                "risk_level": "CRITICAL_SECURITY_RISK"
+            }
+        ]
+    }
+}

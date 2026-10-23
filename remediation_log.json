@@ -1,0 +1,18 @@
+{
+    "timestamp": "2026-10-23T15:19:49.795413+00:00",
+    "total_actions_executed": 2,
+    "actions_log": [
+        {
+            "resource_id": "vol-09a8b7c6d5e4f3a21",
+            "action_type": "SNAPSHOT_AND_DELETE_VOLUME",
+            "status": "SUCCESS",
+            "monthly_savings_usd": 15.0
+        },
+        {
+            "resource_id": "sg-09988776655443322",
+            "action_type": "REVOKE_PUBLIC_INBOUND_PORT_22",
+            "status": "SUCCESS",
+            "risk_mitigated": "CRITICAL_SECURITY_RISK"
+        }
+    ]
+}
