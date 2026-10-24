@@ -2,11 +2,12 @@ from fastapi import FastAPI
 import json
 import os
 import uvicorn
+from auditor import audit_aws_resources
 
 app = FastAPI(
     title="Autonomous Cloud Infrastructure Auditor & Remediator API",
     description="REST API wrapper for automated AWS infrastructure auditing and remediation.",
-    version="1.0.0"
+    version="1.1.0"
 )
 
 @app.get("/")
@@ -14,18 +15,16 @@ def read_root():
     return {
         "status": "online",
         "service": "Cloud Optimizer Engine API",
-        "version": "1.0.0"
+        "version": "1.1.0"
     }
 
 @app.post("/api/v1/audit")
 def trigger_audit():
-    audit_results = {}
-    if os.path.exists("audit_report.json"):
-        with open("audit_report.json", "r") as f:
-            audit_results = json.load(f)
+    # Triggers the live boto3 AWS scanner function
+    report = audit_aws_resources(region_name="af-south-1")
     return {
-        "message": "Audit report loaded successfully.",
-        "report": audit_results
+        "message": "Live AWS audit executed successfully.",
+        "report": report
     }
 
 @app.post("/api/v1/remediate")
